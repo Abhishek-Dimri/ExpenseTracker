@@ -54,3 +54,6 @@ We’ll need at least these collections:
 3. Views summary on dashboard  
 4. Uses filters to analyze spending  
 5. Updates/deletes records as needed  
+
+## Contributors
+- [Ajinkya](https://github.com/coder-bat01)
