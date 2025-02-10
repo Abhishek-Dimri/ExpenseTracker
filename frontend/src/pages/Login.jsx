@@ -1,26 +1,18 @@
 import React from "react";
-import "./signup.css";
+import "./login.css";
 
-const Signup = () => {
+const Login = () => {
   return (
     <div className="login-box">
-      <h2>Signup Form</h2>
+      <h2>Login Form</h2>
       <form action="">
         <div className="user-box">
           <input type="text" required />
           <label>Username</label>
         </div>
         <div className="user-box">
-          <input type="email" required />
-          <label>Email</label>
-        </div>
-        <div className="user-box">
           <input type="password" required />
           <label>Password</label>
-        </div>
-        <div className="user-box">
-          <input type="password" required />
-          <label>Confirm Password</label>
         </div>
         <button type="submit" className="glowing-button">
           <span></span>
@@ -34,4 +26,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
