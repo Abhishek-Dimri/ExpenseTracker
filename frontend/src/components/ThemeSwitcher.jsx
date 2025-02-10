@@ -16,6 +16,8 @@ const ThemeSwitcher = () => {
       <button onClick={() => setTheme("green")}>🌿 Green</button>
       <button onClick={() => setTheme("blue")}>🌀 Blue</button>
       <button onClick={() => setTheme("red")}>🔴 Red</button>
+      <button onClick={() => setTheme("yellow")}>🌕 Yellow</button>
+      <button onClick={() => setTheme("indian_flag")}>🚩 Indian Flag</button>
     </nav>
   );
 };

@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const User = require('./models/User')
 const bcrypt = require('bcryptjs');
+const http = require('http');
 
 // Load environment variables
 dotenv.config();
