@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const http = require('http');
 const authRoutes = require('./routes/authRoutes');
+const cookieParser = require('cookie-parser');
 
 // Load environment variables
 dotenv.config();
@@ -12,8 +13,15 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(
+  cors({
+    origin: 'http://localhost:5173', // Replace with your frontend URL
+    credentials: true, // Allow credentials (cookies)
+  })
+);
+
+app.use(express.json()); // Parse JSON bodies
+app.use(cookieParser()); // Parse cookies
 
 // Connect to MongoDB
 connectDB();
