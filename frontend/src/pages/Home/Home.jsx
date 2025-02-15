@@ -6,6 +6,7 @@ import styles from './Home.module.css';
 
 function Home() {
   return (
+    <div className={styles.container}>
     <div className={styles.loginBox}>
       <h2>Welcome to Home Page</h2>
 
@@ -20,6 +21,7 @@ function Home() {
       <Link to="/signup">
         <GlowingButton ariaLabel="Signup">Signup</GlowingButton>
       </Link>
+    </div>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-// src/pages/Login/Login.jsx
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/thunks/authThunks";
@@ -31,7 +30,7 @@ const Login = () => {
       .unwrap()
       .then((response) => {
         alert(response.user.name + " logged in successfully");
-        navigate("/dashboard");
+        navigate("/add-expense");
       })
       .catch((error) => {
         alert(error.message || "Something went wrong");
@@ -39,34 +38,38 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.loginBox}>
-      <h2>Login Form</h2>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.userBox}>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <label>Email</label>
-        </div>
-        <div className={styles.userBox}>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <label>Password</label>
-        </div>
-        <GlowingButton type="submit" disabled={loading} ariaLabel="Login">
-          {loading ? "Loading..." : "Login"}
-        </GlowingButton>
-        {/* {error && <p className={styles.errorMessage}>{error==="No token provided"?"":error}</p>} */}
-      </form>
+    <div className={styles.container}>
+      <div className={styles.loginBox}>
+        <h2>Login Form</h2>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className={styles.buttonContainer}>
+            <GlowingButton type="submit" disabled={loading} ariaLabel="Login">
+              {loading ? "Loading..." : "Login"}
+            </GlowingButton>
+          </div>
+          {error && <p className={styles.errorMessage}>{error}</p>}
+        </form>
+      </div>
     </div>
   );
 };
