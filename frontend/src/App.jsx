@@ -11,27 +11,31 @@ import { checkAuth } from './redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
 
 function App() {
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     console.log("Dispatching checkAuth..."); // Debugging
     dispatch(checkAuth()); // Check authentication on app load
   }, [dispatch]);
-  return (
-      <Router>
-        <ThemeSwitcher />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/dashboard" element={<ProtectedRoute>
+  return (
+    <Router>
+      <ThemeSwitcher />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
               <Dashboard />
-            </ProtectedRoute>} />
-        </Routes>
-      </Router>
-  )
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
