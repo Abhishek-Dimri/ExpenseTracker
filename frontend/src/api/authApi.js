@@ -1,4 +1,3 @@
-// src/api/authApi.js
 import axios from "axios";
 
 const API_URL = "http://localhost:5000/api/auth"; // Base URL for auth endpoints
@@ -46,6 +45,22 @@ export const checkAuth = async () => {
     // Throw a consistent error object
     throw {
       message: error.response?.data?.message || "Authentication check failed",
+      error: error.response?.data || error.message,
+    };
+  }
+};
+
+// Logout API call
+export const logout = async () => {
+  try {
+    const response = await axios.post(`${API_URL}/logout`, {}, {
+      withCredentials: true, // Ensure cookies are sent with the request
+    });
+    return response.data;
+  } catch (error) {
+    // Throw a consistent error object
+    throw {
+      message: error.response?.data?.message || "Logout failed",
       error: error.response?.data || error.message,
     };
   }

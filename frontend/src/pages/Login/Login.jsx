@@ -1,7 +1,7 @@
 // src/pages/Login/Login.jsx
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../redux/slices/authSlice";
+import { loginUser } from "../../redux/thunks/authThunks";
 import { useNavigate } from "react-router-dom";
 import GlowingButton from "../../components/common/GlowingButton";
 import styles from "./Login.module.css";
@@ -65,7 +65,7 @@ const Login = () => {
         <GlowingButton type="submit" disabled={loading} ariaLabel="Login">
           {loading ? "Loading..." : "Login"}
         </GlowingButton>
-        {error && <p className={styles.errorMessage}>{error==="No token provided"?"":error}</p>}
+        {/* {error && <p className={styles.errorMessage}>{error==="No token provided"?"":error}</p>} */}
       </form>
     </div>
   );

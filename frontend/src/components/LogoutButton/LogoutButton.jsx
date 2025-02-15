@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../redux/slices/authSlice';
-import axios from 'axios';
+import { logout } from '../../api/authApi'; // Import the centralized logout API
 import styles from './LogoutButton.module.css';
 
 const LogoutButton = () => {
@@ -9,10 +9,10 @@ const LogoutButton = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/auth/logout', {}, { withCredentials: true });
+      await logout(); // Use the centralized logout API
       dispatch(logoutUser()); // Clear the user state in Redux
     } catch (error) {
-      console.error('Logout failed:', error);
+      console.error('Logout failed:', error.message || error);
     }
   };
 

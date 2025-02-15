@@ -1,7 +1,7 @@
 // src/pages/Signup/Signup.jsx
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { signupUser } from "../../redux/slices/authSlice";
+import { signupUser } from "../../redux/thunks/authThunks";
 import GlowingButton from "../../components/common/GlowingButton";
 import styles from "./Signup.module.css";
 
@@ -89,7 +89,7 @@ const Signup = () => {
         <GlowingButton type="submit" disabled={loading} ariaLabel="Signup">
           {loading ? "Loading..." : "Signup"}
         </GlowingButton>
-        {error && <p className={styles.errorMessage}>{error==="No token provided"?"":error}</p>}
+        {/* {error && <p className={styles.errorMessage}>{error==="No token provided"?"":error}</p>} */}
       </form>
     </div>
   );

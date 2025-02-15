@@ -7,7 +7,7 @@ import Home from './pages/Home/Home';
 import Dashboard from './pages/Dashboard';
 import Navbar from './components/Navbar/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
-import { checkAuth } from './redux/slices/authSlice';
+import { checkAuth } from './redux/thunks/authThunks';
 import { useDispatch } from 'react-redux';
 
 function App() {
