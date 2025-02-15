@@ -3,7 +3,7 @@ import { signupUser, loginUser, checkAuth } from '../thunks/authThunks'; // Impo
 
 const initialState = {
   user: null,
-  loading: false,
+  loading: true,
   error: null,
 };
 

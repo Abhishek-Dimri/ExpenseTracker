@@ -29,7 +29,7 @@ export const ThemeProvider = ({ children }) => {
     },
     indian_flag: {
       "--primary-bg": "linear-gradient( #e65c00, #ffffff, #138808)",
-      "--accent-color": " #fff",
+      "--accent-color": "rgb(255, 126, 40)",
       "--box-shadow": "0 0 5px #fff, 0 0 25px #fff  , 0 0 50px #fff, 0 0 100px #fff"
     }
   };
