@@ -34,14 +34,14 @@ export const checkAuth = createAsyncThunk(
   "auth/checkAuth",
   async (_, { rejectWithValue }) => {
     try {
-      console.log("Sending checkAuth request..."); // Debugging
+      // console.log("Sending checkAuth request..."); // Debugging
       const response = await axios.get("http://localhost:5000/api/auth/check-auth", {
         withCredentials: true, // Send cookies with the request
       });
-      console.log("checkAuth response:", response.data); // Debugging
+      // console.log("checkAuth response:", response.data); // Debugging
       return response.data.user; // Return the user data
     } catch (error) {
-      console.log("checkAuth error:", error.response?.data || error.message); // Debugging
+      // console.log("checkAuth error:", error.response?.data || error.message); // Debugging
       return rejectWithValue(error.response?.data || { message: 'An error occurred' });
     }
   }
@@ -90,17 +90,17 @@ const authSlice = createSlice({
         state.error = action.payload.message;
       })
       .addCase(checkAuth.pending, (state) => {
-        console.log("checkAuth pending"); // Debugging
+        // console.log("checkAuth pending"); // Debugging
         state.loading = true;
         state.error = null;
       })
       .addCase(checkAuth.fulfilled, (state, action) => {
-        console.log("checkAuth fulfilled:", action.payload); // Debugging
+        // console.log("checkAuth fulfilled:", action.payload); // Debugging
         state.loading = false;
         state.user = action.payload; // Update the user state
       })
       .addCase(checkAuth.rejected, (state, action) => {
-        console.log("checkAuth rejected:", action.payload); // Debugging
+        // console.log("checkAuth rejected:", action.payload); // Debugging
         state.loading = false;
         state.error = action.payload?.message || 'An error occurred'; // Handle undefined payload
       });

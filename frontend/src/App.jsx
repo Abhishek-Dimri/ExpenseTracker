@@ -1,11 +1,11 @@
-import {React , useEffect} from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './App.css'
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Home from './pages/Home';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
+import Home from './pages/Home/Home';
 import Dashboard from './pages/Dashboard';
-import ThemeSwitcher from './components/ThemeSwitcher';
+import Navbar from './components/Navbar/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import { checkAuth } from './redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
@@ -14,13 +14,13 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("Dispatching checkAuth..."); // Debugging
+    // console.log('Dispatching checkAuth...'); // Debugging
     dispatch(checkAuth()); // Check authentication on app load
   }, [dispatch]);
 
   return (
     <Router>
-      <ThemeSwitcher />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

@@ -1,9 +1,10 @@
-// src/pages/Login.js
+// src/pages/Login/Login.jsx
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../redux/slices/authSlice"; // Import the login action
-import { useNavigate } from "react-router-dom"; // For redirection
-import "./login.css"; // Add CSS for styling
+import { loginUser } from "../../redux/slices/authSlice";
+import { useNavigate } from "react-router-dom";
+import GlowingButton from "../../components/common/GlowingButton";
+import styles from "./Login.module.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ const Login = () => {
       .unwrap()
       .then((response) => {
         alert(response.user.name + " logged in successfully");
-        navigate("/dashboard"); // Redirect to dashboard after login
+        navigate("/dashboard");
       })
       .catch((error) => {
         alert(error.message || "Something went wrong");
@@ -38,10 +39,10 @@ const Login = () => {
   };
 
   return (
-    <div className="login-box">
+    <div className={styles.loginBox}>
       <h2>Login Form</h2>
       <form onSubmit={handleSubmit}>
-        <div className="user-box">
+        <div className={styles.userBox}>
           <input
             type="email"
             name="email"
@@ -51,7 +52,7 @@ const Login = () => {
           />
           <label>Email</label>
         </div>
-        <div className="user-box">
+        <div className={styles.userBox}>
           <input
             type="password"
             name="password"
@@ -61,10 +62,10 @@ const Login = () => {
           />
           <label>Password</label>
         </div>
-        <button type="submit" className="glowing-button" disabled={loading}>
+        <GlowingButton type="submit" disabled={loading} ariaLabel="Login">
           {loading ? "Loading..." : "Login"}
-        </button>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        </GlowingButton>
+        {error && <p className={styles.errorMessage}>{error==="No token provided"?"":error}</p>}
       </form>
     </div>
   );

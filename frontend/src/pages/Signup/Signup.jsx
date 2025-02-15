@@ -1,8 +1,9 @@
-// src/pages/Signup.js
+// src/pages/Signup/Signup.jsx
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { signupUser } from "../redux/slices/authSlice"; // Import the signup action
-import "./signup.css";
+import { signupUser } from "../../redux/slices/authSlice";
+import GlowingButton from "../../components/common/GlowingButton";
+import styles from "./Signup.module.css";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -34,19 +35,18 @@ const Signup = () => {
     dispatch(signupUser(formData))
       .unwrap()
       .then((response) => {
-        alert(response.message); // Show success message
-        // Optionally, redirect to login page
+        alert(response.message);
       })
       .catch((error) => {
-        alert(error.message || "Something went wrong"); // Show error message
+        alert(error.message || "Something went wrong");
       });
   };
 
   return (
-    <div className="login-box">
+    <div className={styles.loginBox}>
       <h2>Signup Form</h2>
       <form onSubmit={handleSubmit}>
-        <div className="user-box">
+        <div className={styles.userBox}>
           <input
             type="text"
             name="name"
@@ -56,7 +56,7 @@ const Signup = () => {
           />
           <label>Username</label>
         </div>
-        <div className="user-box">
+        <div className={styles.userBox}>
           <input
             type="email"
             name="email"
@@ -66,7 +66,7 @@ const Signup = () => {
           />
           <label>Email</label>
         </div>
-        <div className="user-box">
+        <div className={styles.userBox}>
           <input
             type="password"
             name="password"
@@ -76,7 +76,7 @@ const Signup = () => {
           />
           <label>Password</label>
         </div>
-        <div className="user-box">
+        <div className={styles.userBox}>
           <input
             type="password"
             name="confirmPassword"
@@ -86,10 +86,10 @@ const Signup = () => {
           />
           <label>Confirm Password</label>
         </div>
-        <button type="submit" className="glowing-button" disabled={loading}>
-          {loading ? "Loading..." : "Submit"}
-        </button>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        <GlowingButton type="submit" disabled={loading} ariaLabel="Signup">
+          {loading ? "Loading..." : "Signup"}
+        </GlowingButton>
+        {error && <p className={styles.errorMessage}>{error==="No token provided"?"":error}</p>}
       </form>
     </div>
   );

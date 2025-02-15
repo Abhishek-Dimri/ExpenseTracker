@@ -1,27 +1,5 @@
-/* Home Page Styling */
-.login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .login-box h2 {
-    margin: 0 0 30px;
-    padding: 0;
-    color: #fff;
-    text-align: center;
-  }
-  
-  /* Glowing Button */
-  .glowing-button {
+/* src/components/common/GlowingButton.module.css */
+.glowingButton {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -37,20 +15,19 @@
     outline: none;
   }
   
-  .glowing-button:hover {
+  .glowingButton:hover {
     background: var(--accent-color);
     color: #fff;
     border-radius: 5px;
     box-shadow: var(--box-shadow);
   }
   
-  /* Glowing Animation */
-  .glowing-button span {
+  .glowingButton span {
     position: absolute;
     display: block;
   }
   
-  .glowing-button span:nth-child(1) {
+  .glowingButton span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -69,7 +46,7 @@
     }
   }
   
-  .glowing-button span:nth-child(2) {
+  .glowingButton span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -89,7 +66,7 @@
     }
   }
   
-  .glowing-button span:nth-child(3) {
+  .glowingButton span:nth-child(3) {
     bottom: 0;
     right: 100%;
     width: 100%;
@@ -109,7 +86,7 @@
     }
   }
   
-  .glowing-button span:nth-child(4) {
+  .glowingButton span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
@@ -128,4 +105,3 @@
       bottom: 100%;
     }
   }
-  
