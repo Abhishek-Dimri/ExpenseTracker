@@ -64,7 +64,8 @@ const Login = () => {
           </div>
           <div className={styles.buttonContainer}>
             <GlowingButton type="submit" disabled={loading} ariaLabel="Login">
-              {loading ? "Loading..." : "Login"}
+              {/* {loading ? "Loading..." : "Login"} */}
+              Login
             </GlowingButton>
           </div>
           {error && <p className={styles.errorMessage}>{error}</p>}

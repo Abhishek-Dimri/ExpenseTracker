@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import AddExpense from './pages/AddExpense/AddExpense';
-import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import Signup from './pages/Signup/Signup';
-import Dashboard from './pages/Dashboard';
+import Navbar from './components/Navbar/Navbar'; 
+const AddExpense = React.lazy(() => import('./pages/AddExpense/AddExpense'));
+const Home = React.lazy(() => import('./pages/Home/Home'));
+const Login = React.lazy(() => import('./pages/Login/Login'));
+const Signup = React.lazy(() => import('./pages/Signup/Signup'));
+const Dashboard = React.lazy(() => import('./pages/Dashboard'));
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
