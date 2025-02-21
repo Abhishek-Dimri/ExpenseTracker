@@ -33,3 +33,6 @@
     transform: scale(1.05);
     background: var(--accent-color);
   }
+  #Welcome{
+    color: var(--accent-color);
+  }

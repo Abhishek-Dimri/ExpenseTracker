@@ -11,6 +11,8 @@ function Navbar() {
         <Link to="/">
           <button id={styles.Home}>Home</button>
         </Link>
+        <h3 id={styles.Welcome}>Welcome</h3>
+        
       </div>
       <div className={styles.navbarRight}>
         <ThemeSwitcher />
